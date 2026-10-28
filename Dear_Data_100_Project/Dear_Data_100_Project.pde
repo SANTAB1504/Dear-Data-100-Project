@@ -1,7 +1,32 @@
 Health myHealth;
 Health Heart2;
 Heart Heart3;
-int[][] PixelMap= {
+PImage Jevil;
+PImage spamton;
+color Red = color(255,26,26);
+int PlayState = 0;
+  void setup(){
+  size(600,600);
+  Jevil = loadImage("jevil2.png");
+  spamton = loadImage("Spamton.png");
+  myHealth = new Health(100,100,25);
+  Heart3 = new Heart(50,2);
+  
+
+}
+void draw(){
+background(0,0,0);
+ScreenChange();
+
+}
+
+
+
+class Heart { 
+  //Heart Pos
+  int Xpos = 0;
+  int Ypos = -10;
+  int[][] PixelMap= {
     {0,0,0,0,0,0,0,0,0,0},
     {0,0,0,0,0,0,0,0,0,0},
     {0,0,0,0,0,0,0,0,0,0},
@@ -16,26 +41,6 @@ int[][] PixelMap= {
    
      
   };
-  color Red = color(255,26,26);
-  void setup(){
-  size(600,600);
-  myHealth = new Health(100,100,25);
-  Heart3 = new Heart(50,2);
-  
-
-}
-void draw(){
-background(255,255,255);
-
-myHealth.display();
-Heart3.display();
-
-}
-
-class Heart { 
-  //Heart Pos
-  int Xpos = 0;
-  int Ypos = -10;
   Heart(int Xpos,int Ypos){
   this.Xpos = Xpos;
   this.Ypos = Ypos;
@@ -74,4 +79,22 @@ fill(255,0,0);
 rect(HPposX+square*1,HPposy,1,20);
     }
   }
+}
+void ScreenChange(){
+int XPosImgJ = 100;
+int YposImgJ = 200;
+int XPosImgS = 500;
+int YPosImgS = 200;
+if (PlayState == 0){
+image(Jevil,XPosImgJ,YposImgJ,200,200);
+image(spamton,XPosImgS,YPosImgS,200,200);
+if(mousePressed && mouseX>XPosImgJ && mouseX<XPosImgJ+200){
+  PlayState= 1;}
+}
+if (PlayState == 1){
+rect(2,3,400,300);
+Heart3.display();}
+
+
+
 }
