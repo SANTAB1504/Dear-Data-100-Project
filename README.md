@@ -4,7 +4,7 @@ Project for IN1007
 
 This will outline my initial ideas for the project.
 
-An interactive data visualization built in processing. It will track 100 combat encounter from Delta rune to explore difficulty, tactical choices, and final health points.
+An interactive data visualization built in processing. It will track 100 turns from Delta rune to explore difficulty, tactical choices, and final health points.
 
 ## The 100 Observations
 
